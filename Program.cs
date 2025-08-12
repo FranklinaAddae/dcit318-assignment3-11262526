@@ -1,6 +1,7 @@
 ﻿using System;
 using Assignment3.Question1_Finance;
 using Assignment3.Question2_Healthcare;
+using Assignment3.Question3_Warehouse;
 
 namespace Assignment3
 {
@@ -15,7 +16,8 @@ namespace Assignment3
                 Console.WriteLine("=== DCIT 318 - Assignment 3 ===");
                 Console.WriteLine("1. Question 1 - Finance Management System");
                 Console.WriteLine("2. Question 2 - Healthcare System");
-                Console.WriteLine("3. Exit");
+                Console.WriteLine("3. Question 3 - Warehouse Inventory Management");
+                Console.WriteLine("4. Exit");
                 Console.Write("\nSelect an option (1-3): ");
 
                 string choice = Console.ReadLine()?.Trim();
@@ -32,6 +34,11 @@ namespace Assignment3
                         Pause();
                         break;
                     case "3":
+                        Console.Clear();
+                        RunQuestion3();
+                        Pause();
+                        break;
+                    case "4":
                         exit = true;
                         break;
                     default:
@@ -55,6 +62,15 @@ namespace Assignment3
             var healthcareApp = new HealthcareApp();
             healthcareApp.Run();
         }
+
+        static void RunQuestion3()
+        {
+            Console.WriteLine("=== Running Question 3: Warehouse Inventory Management ===\n");
+            var manager = new Assignment3.Question3_Warehouse.WareHouseManager();
+            manager.Run();
+        }
+
+
 
         static void Pause()
         {
