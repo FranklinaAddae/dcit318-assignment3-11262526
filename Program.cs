@@ -4,6 +4,7 @@ using Assignment3.Question1_Finance;
 using Assignment3.Question2_Healthcare;
 using Assignment3.Question3_Warehouse;
 using Assignment3.Question4_Grading;
+using Assignment3.Question5_Inventory;
 
 namespace Assignment3
 {
@@ -20,7 +21,8 @@ namespace Assignment3
                 Console.WriteLine("2. Question 2 - Healthcare System");
                 Console.WriteLine("3. Question 3 - Warehouse Inventory Management");
                 Console.WriteLine("4. Question 4 - Student Grading System");
-                Console.WriteLine("5. Exit");
+                Console.WriteLine("5. Question 5 - Inventory Records System");
+                Console.WriteLine("6. Exit");
                 Console.Write("\nSelect an option (1-5): ");
 
                 string choice = Console.ReadLine()?.Trim();
@@ -47,6 +49,11 @@ namespace Assignment3
                         Pause();
                         break;
                     case "5":
+                        Console.Clear();
+                        RunQuestion5();
+                        Pause();
+                        break;
+                    case "6":
                         exit = true;
                         break;
                     default:
@@ -114,6 +121,33 @@ namespace Assignment3
                 Console.WriteLine($"Unexpected error: {ex.Message}");
             }
         }
+
+        static void RunQuestion5()
+        {
+            Console.WriteLine("=== Running Question 5: Inventory Records System ===\n");
+
+            // file path placed in project root
+            string projectDir = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\.."));
+            string filePath = Path.Combine(projectDir, "inventory.json");
+
+            var app = new Assignment3.Question5_Inventory.InventoryApp(filePath);
+
+            // Seed in-memory data
+            app.SeedSampleData();
+
+            // Save to disk
+            app.SaveData();
+
+            // Simulate new session: clear memory
+            app.ClearMemory();
+
+            // Load back from disk
+            app.LoadData();
+
+            // Print loaded items
+            app.PrintAllItems();
+        }
+
 
         static void Pause()
         {

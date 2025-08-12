@@ -1,0 +1,20 @@
+[
+  {
+    "Id": 1,
+    "Name": "Stapler",
+    "Quantity": 25,
+    "DateAdded": "2025-08-12T11:03:41.0914551+00:00"
+  },
+  {
+    "Id": 2,
+    "Name": "Notebook",
+    "Quantity": 100,
+    "DateAdded": "2025-08-10T11:03:41.0981055+00:00"
+  },
+  {
+    "Id": 3,
+    "Name": "Pen Pack",
+    "Quantity": 200,
+    "DateAdded": "2025-08-07T11:03:41.098251+00:00"
+  }
+]
